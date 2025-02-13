@@ -1,0 +1,15 @@
+flowchart LR
+    A[Laptop Camera] -->|1. Capture Image| B[Local Storage]
+    B -->|2. Upload| C[(AWS S3)]
+    C -->|3. Trigger| D[AWS Lambda]
+    D -->|4. Analyze| E[AWS Rekognition]
+    E -->|5. Results| D
+    D -->|6. If Low Food| F[Twilio API]
+    F -->|7. Phone Call| G[User Phone]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#ffa07a,stroke:#333,stroke-width:2px
+    style D fill:#98fb98,stroke:#333,stroke-width:2px
+    style E fill:#87cefa,stroke:#333,stroke-width:2px
+    style F fill:#dda0dd,stroke:#333,stroke-width:2px
+    style G fill:#f0e68c,stroke:#333,stroke-width:2px

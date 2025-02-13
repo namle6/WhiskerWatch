@@ -39,6 +39,83 @@ The main technical challenges included:
 - AWS Lambda function development and debugging strategies
 - The importance of error handling in distributed systems
 
+## Installation and Setup
+
+### Prerequisites
+- Python 3.8 or higher
+- AWS Account with appropriate permissions
+- Twilio Account for phone call notifications
+- Terraform installed
+
+### AWS Setup
+1. Create an AWS account if you don't have one
+2. Configure AWS credentials locally:
+   ```bash
+   aws configure
+   ```
+3. Create an S3 bucket for storing images
+
+### Local Setup
+1. Clone the repository
+   ```bash
+   git clone https://github.com/namle6/WhiskerWatch.git
+   cd WhiskerWatch
+   ```
+
+2. Create and activate Python virtual environment
+   ```bash
+   python -m venv venv
+   # On Windows
+   .\venv\Scripts\activate
+   # On Unix or MacOS
+   source venv/bin/activate
+   ```
+
+3. Install required packages
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Configure environment variables
+   ```bash
+   cp .env.example .env
+   # Edit .env with your AWS and Twilio credentials
+   ```
+
+### Infrastructure Setup
+1. Initialize Terraform
+   ```bash
+   cd terraform
+   terraform init
+   ```
+
+2. Apply Terraform configuration
+   ```bash
+   terraform plan
+   terraform apply
+   ```
+
+## Running the Application
+
+### Start Image Capture
+```bash
+python capture_image.py
+```
+This script will:
+- Take daily photos of your cat food container
+- Upload images to S3
+- Trigger Lambda function for processing
+
+### Monitor Logs
+You can monitor the application through:
+- AWS CloudWatch logs
+- Local application logs in the `logs` directory
+
+### Stop the Application
+To stop the image capture:
+- Press Ctrl+C in the terminal running capture_image.py
+- Or use task manager to end the Python process
+
 ## What's next for WhiskerWatch
 Future development plans include:
 - Migrating from laptop camera to a dedicated IoT device

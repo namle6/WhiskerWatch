@@ -1,0 +1,17 @@
+{
+  "name": "lamda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-rekognition": "^3.744.0",
+    "twilio": "^5.4.4"
+  },
+  "devDependencies": {},
+  "description": ""
+}
